@@ -1,6 +1,8 @@
+// src/App.js
 import React, { useState } from 'react';
-import NoteForm from './src/NoteForm';
-import NoteList from './src/NoteList';
+import NoteForm from './NoteForm';
+import NoteList from './NoteList';
+import './App.css';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -9,10 +11,17 @@ function App() {
     setNotes(prevNotes => [...prevNotes, newNote]);
   };
 
+  const deleteNote = (indexToDelete) => {
+    setNotes(prevNotes => prevNotes.filter((note, index) => index !== indexToDelete));
+  };
+
   return (
-    <div>
+    <div className="app">
+      <header className="app-header">
+        <h1>Keeper App</h1>
+      </header>
       <NoteForm addNote={addNote} />
-      <NoteList notes={notes} />
+      <NoteList notes={notes} deleteNote={deleteNote} />
     </div>
   );
 }

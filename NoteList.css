@@ -1,0 +1,7 @@
+/* src/components/NoteList.css */
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
